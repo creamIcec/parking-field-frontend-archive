@@ -195,4 +195,10 @@ export function download(url, params, filename, config) {
     });
 }
 
+export function createWebsocketConnection(url) {
+  const token = getToken();
+  const ws = new WebSocket(url, [token]);
+  return ws;
+}
+
 export default service;

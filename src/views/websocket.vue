@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import { createWebsocketConnection } from "@/utils/request";
+
 export default {
   data() {
     return {
@@ -28,7 +30,7 @@ export default {
   methods: {
     join() {
       const wsuri = this.url;
-      this.ws = new WebSocket(wsuri);
+      this.ws = createWebsocketConnection(wsuri);
       const self = this;
       this.ws.onopen = function (event) {
         self.text_content = self.text_content + "已经打开连接!" + "\n";
